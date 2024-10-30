@@ -6,4 +6,5 @@ router.get('/categoria',getCategoryHandler);
 router.post('/categoria',addCategoryHandler)
 
 
+
 export default router;
