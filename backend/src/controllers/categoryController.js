@@ -1,13 +1,13 @@
 import { getAlltCategory, addCategory } from '../service/categoryService.js';
 
-function getCategoryHandler(req,res){
-    const getCategoryServer = getAlltCategory()
+async function getCategoryHandler(req,res){
+    const getCategoryServer = await getAlltCategory()
     return res.status(200).json(getCategoryServer)
 };
 
-function addCategoryHandler(req,res){
+async function addCategoryHandler(req,res){
     const category = req.body;
-    const new_category =  addCategory(category)
+    const new_category =  await addCategory(category)
     return res.status(201).json(new_category)
 }
 
