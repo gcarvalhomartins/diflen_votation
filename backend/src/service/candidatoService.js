@@ -8,7 +8,7 @@ function getAllCandidato(){
 
 function addCandidato(new_candidato){
     const { id_category, name_candidato} = new_candidato
-    candidato.push({id_category, name_candidato})
+    candidato.push({ id_category,  name_candidato })
     return { menssage:"Candidato adicionado com sucesso =) "}
 
 }
