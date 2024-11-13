@@ -1,7 +1,7 @@
 import { Sequelize, DataTypes } from "sequelize";
 import sequelize from "./database";
 
-const Category = sequelize.define("categoria", {
+const category = sequelize.define("categoria", {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -12,8 +12,8 @@ const Category = sequelize.define("categoria", {
         allowNull: false,
     }
 }, {
-    timestamps: true // Adiciona os campos createdAt e updatedAt automaticamente
+    timestamps: true 
 });
 
 
-export default Category;
+export default category;
