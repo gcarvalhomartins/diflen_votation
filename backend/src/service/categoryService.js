@@ -11,7 +11,7 @@ async function getAlltCategory(){
 async function addCategory( newCategoria ){
     
     try {
-        
+
         const category = await category.create({
             category_name: newCategoria.name_category
         });
@@ -25,7 +25,13 @@ async function addCategory( newCategoria ){
    }
 }
 
+async function getCategoryId(id)  {
+    return await category.findByPk(id)
+}
+
+
 export { 
     getAlltCategory,
+    getCategoryId,
     addCategory
 }
