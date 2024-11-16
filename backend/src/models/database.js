@@ -7,7 +7,7 @@ const mydialect = process.env.DIALECT
 
 const sequelize = new Sequelize(dataBase,username,password,{
     host:myhost,
-    dialect: mydialect
+    dialect: 'mysql'
 })
 
 export default sequelize;

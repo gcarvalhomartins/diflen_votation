@@ -11,7 +11,6 @@ async function getAlltCategory(){
 async function addCategory( newCategoria ){
     
     try {
-
         const category = await category.create({
             category_name: newCategoria.name_category
         });
