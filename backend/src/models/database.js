@@ -1,4 +1,6 @@
 import { Sequelize } from "sequelize";
+import dotenv from 'dotenv'
+dotenv.config()
 
 
 const dataBase = process.env.DATABASE;
@@ -9,8 +11,8 @@ const mydialect = process.env.DIALECT
 
 console.log(dataBase,user,password)
 const sequelize = new Sequelize(dataBase,user,password,{
-    host:'localhost',
-    dialect: 'mysql'
+    host:myhost,
+    dialect: mydialect
 })
 
 try {
