@@ -11,9 +11,16 @@ async function addCategoryHandler(req,res){
     return res.status(201).json(new_category)
 }
 
+async function getCategoryBiId(req,res){
+    const id_categori = req.params.id
+    const category = await getCategoryId(id_categori)
+    return res.status(200).json(category)
+}
+
 export {
     getCategoryHandler,
-    addCategoryHandler
+    addCategoryHandler,
+    getCategoryBiId
 }
 
 
