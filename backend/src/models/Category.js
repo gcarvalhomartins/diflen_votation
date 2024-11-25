@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes } from "sequelize";
-import sequelize from "./database";
+import sequelize from "./database.js";
 
 export const category = sequelize.define("categoria", {
     id: {
@@ -14,6 +14,14 @@ export const category = sequelize.define("categoria", {
 }, {
     timestamps: true 
 });
+
+try {
+    category.sync().then(()=>{
+        console.log("Tabela category criada com sucesso")
+    })
+}catch(error){
+    console.error("Não foi criada a tabela:", error)
+}
 
 
 export default category;

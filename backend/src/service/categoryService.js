@@ -8,20 +8,18 @@ async function getAlltCategory(){
 }
 
 async function addCategory( newCategoria ){
+    const { category_name } = newCategoria
     
-    try {
+    try{
+        const categories = await category.create({
+            category_name
+        })
+        console.log("Categoria adicionada com sucesso:",categories)
+        return categories
 
-        const category = await category.create({
-            category_name: newCategoria.name_category
-        });
-
-        return {menssage: "Categoria criada com sucesso", category }
-   } catch (error) {
-
-        console.error("Erro ao adicionar categoria, service",error)
-        throw(error)
-
-   }
+    }catch(error){
+        console.error("Erro na category service:", error)
+    }
 }
 
 async function getCategoryId(id)  {
