@@ -1,5 +1,5 @@
 import { json } from "express"
-import category, { category }  from "../models/Category"
+import { category }  from "../models/Category"
 
 
 async function getAlltCategory(){
@@ -26,14 +26,14 @@ async function getCategoryId(id)  {
     return await category.findByPk(id)
 }
 
-async function updateCategory(id, new_date) {
+async function updateCategory(id,new_name) {
     try {
         const categories = await getCategoryId(id);
         if(!categories){
             throw new Error("Categoria nao encontrada")
         }
         
-        await categories.update(new_date);
+        await categories.update(id,new_name);
         console.log("Categoria atualizada com sucesso:", categories);
         return categories
     }catch (error) {
