@@ -1,4 +1,4 @@
-import { getAlltCategory, addCategory } from '../service/categoryService.js';
+import { getAlltCategory, addCategory, getCategoryId, updateCategory } from '../service/categoryService.js';
 
 async function getCategoryHandler(req,res){
     const getCategoryServer = await getAlltCategory()
@@ -12,15 +12,22 @@ async function addCategoryHandler(req,res){
 }
 
 async function getCategoryBiId(req,res){
-    const id_categori = req.params.id
+    const id_categori = req.params.id;
     const category = await getCategoryId(id_categori)
     return res.status(200).json(category)
+}
+async function updateCategoryHandler(req,res){
+    const id = req.params.id;
+    const new_name = req.body;
+    const updateCategories = await updateCategory(id,new_name)
+    return res.status(200).json(updateCategories)
 }
 
 export {
     getCategoryHandler,
     addCategoryHandler,
-    getCategoryBiId
+    getCategoryBiId,
+    updateCategoryHandler
 }
 
 
