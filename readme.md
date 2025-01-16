@@ -55,8 +55,8 @@ Lista das Rotas que estao Disponiveis.
 | PUT     | /api/candidato/:id      | Atualiza os dados de um candidato       |
 | DELETE  | /api/candidato/:id      | Remove um candidato                      |
 | GET     | /api/voto          | Retorna uma lista de votos          |
-| POST    | /api/categoria          | Cria um novo voto                   |
-| GET     | /api/categoria/:id      | Retorna os detalhes de um voto     |
+| POST    | /api/voto          | Cria um novo voto                   |
+| GET     | /api/voto/:id      | Retorna os detalhes de um voto     |
 
 
 ## ⚙️ Fluxo do Projeto Back-End
@@ -66,7 +66,7 @@ O Projeto esta arquitetado em MVC, models, Views e Controllers.
 Atencao: Para nao sobrecarregar os models, foi criado uma camada de services, para ser realizado todas as operacoes de servicos. 
 
 Arquitetura do Projeto: <br/>
-        ➥ src/ <br/>
+        &nbsp;➥ src/ <br/>
             ➥ controllers/ # Contém a lógica para manipulação das requisições. <br/>
             ➥ models/ # Contém os modelos do banco de dados usando Sequelize. <br/>
             ➥ routes/ # Define as rotas e suas conexões com os controladores. <br/>
