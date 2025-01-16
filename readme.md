@@ -66,12 +66,12 @@ O Projeto esta arquitetado em MVC, models, Views e Controllers.
 Atencao: Para nao sobrecarregar os models, foi criado uma camada de services, para ser realizado todas as operacoes de servicos. 
 
 Arquitetura do Projeto: <br/>
-        &nbsp;➥ src/ <br/>
-            ➥ controllers/ # Contém a lógica para manipulação das requisições. <br/>
-            ➥ models/ # Contém os modelos do banco de dados usando Sequelize. <br/>
-            ➥ routes/ # Define as rotas e suas conexões com os controladores. <br/>
-            ➥ services/ # Implementa a lógica de negócios.<br/>
-            ➥ database/ # Contém as configurações do banco de dados.<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➥ src/ <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➥ controllers/ # Contém a lógica para manipulação das requisições. <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➥ models/ # Contém os modelos do banco de dados usando Sequelize. <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➥ routes/ # Define as rotas e suas conexões com os controladores. <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➥ services/ # Implementa a lógica de negócios.<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;➥ database/ # Contém as configurações do banco de dados.<br/>
 
 ## Link para download dos json consumidos no insominia.
 
