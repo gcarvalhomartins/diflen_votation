@@ -28,17 +28,13 @@ async function getCategoryId(id){
     return categories_Id
 }
 
-async function updateCategory(id,new_name) {
+async function updateCategory(categoria) {
     
     try {
+        const { id } = categoria;
         const id_category = await getCategoryId(id);
         if(!id_category){
             throw new Error("Categoria nao encontrada")
-        }
-
-        const categoria = {
-            id,
-            new_name
         }
         
         await category.update(categoria,{ where: { id: id }});

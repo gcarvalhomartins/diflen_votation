@@ -17,9 +17,8 @@ async function getCategoryBiId(req,res){
     return res.status(200).json(category)
 }
 async function updateCategoryHandler(req,res){
-    const id = req.params.id;
-    const new_name = req.body;
-    const updateCategories = await updateCategory(id,new_name)
+    const category = req.body;
+    const updateCategories = await updateCategory(category)
     return res.status(200).json(updateCategories)
 }
 
