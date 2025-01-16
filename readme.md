@@ -11,14 +11,33 @@ Aqui estão as dependências principais necessárias para rodar o projeto. Certi
 - [dotenv](https://nodejs.org/) (versão mínima: 16.x)
 - [Express.js](https://expressjs.com/)
 - [Sequelize](https://sequelize.org/)
-- [nodemon] para ficar startando o projeto.
--[mysql2] para conectar ao banco de dados
+- [nodemon](https://www.npmjs.com/package/nodemon).
+-[mysql2](https://www.npmjs.com/package/mysql2).
 
-### Como instalar as dependências:
+### Como instalar o projeto:
 1. Clone o repositório:
    ```bash
    git clone https://github.com/gcarvalhomartins/diflen_votation.git
    cd repo
+
+## 🦾 Como dar instalar as dependencias:
+1. no terminal dentro da pasta backend, digite o seguinte comando:
+    ```bash
+    npm i -- este comando server para instalar todas as dependencias.
+
+## 👀 Utilizando o env:
+
+Dentro da pasta backend, existe um arquivo chamado .env.example, ele e apenas um exemplo 
+de como voce pode utilizar as variaveis de ambiente dentro do projeto e comecar a utilizar ele
+    
+    PORT = PORT -- porta para iniciar o projeto. 
+    HOST = HOST -- host do projeto.
+    DB_PORT = DB_PORT -- porta do banco de dados. 
+    DB_USER = DB_USER -- usuario do banco de dados. 
+    DATABASE = DATABASE -- database do projeto. 
+    DIALECT = DIALECT -- linguagem do seu banco de dados.
+    DB_PASSWORD = DB_PASSWORD -- senha do usuario do banco. 
+
 
 ## 📚 Rotas Disponíveis
 
@@ -47,12 +66,7 @@ O Projeto esta arquitetado em MVC, models, Views e Controllers.
 Atencao: Para nao sobrecarregar os models, foi criado uma camada de services, para ser realizado todas as operacoes de servicos. 
 
 1. Arquitetura do Projeto: 
-    src/
-        controllers/: Contém a lógica para manipulação das requisições.
-        models/: Contém os modelos do banco de dados usando Sequelize.
-        routes/: Define as rotas e suas conexões com os controladores.
-        services/: Implementa a lógica de negócios.
-        database/: Contém configurações do banco de dados.
+    src/ ├── controllers/ # Contém a lógica para manipulação das requisições. ├── models/ # Contém os modelos do banco de dados usando Sequelize. ├── routes/ # Define as rotas e suas conexões com os controladores. ├── services/ # Implementa a lógica de negócios. └── database/ # Contém as configurações do banco de dados.
 
 ## Link para download dos json consumidos no insominia.
 
