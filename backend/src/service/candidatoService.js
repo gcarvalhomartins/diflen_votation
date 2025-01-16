@@ -8,13 +8,13 @@ async function getAllCandidatos(){
 }
 
 async function addCandidato( newCandidato ){
-    const { category_id ,candidato_name } = newCandidato
+    const { category_id,candidato_name } = newCandidato
     
     try{
         const candidatos = await candidato.create({
             category_id, candidato_name
         })
-        console.log("Candidato adicionado com sucesso:",candidatos)
+     //   console.log("Candidato adicionado com sucesso:",candidatos)
         return candidatos
 
     }catch(error){
@@ -38,7 +38,7 @@ async function updateCandidato(candidatoObj) {
         }
         
         await candidato.update(candidatoObj,{ where: { id: id }});
-        console.log("Categoria atualizada com sucesso:", candidato);
+      //  console.log("Categoria atualizada com sucesso:", candidato);
         return candidato
 
     }catch (error) {
@@ -56,7 +56,7 @@ async function deleteCandidato(candidatoObj) {
         }
 
         await candidato.destroy({ where: { id: id }});
-        console.log("Categoria deletada com sucesso:",candidato);
+      //  console.log("Categoria deletada com sucesso:",candidato);
         return candidato
 
     }catch(error){
