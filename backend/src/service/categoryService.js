@@ -47,14 +47,15 @@ async function updateCategory(categoria) {
     }
 }
 
-async function deleteCategory(id) {
+async function deleteCategory(categoria) {
     try {
+        const { id } = categoria
         const id_category = await getCategoryId(id)
         if(!id_category){
             throw new Error("Categoria nao encontrada")
         }
 
-        await category.destroy(id)
+        await category.destroy({ where: { id: id }});
         console.log("Categoria deletada com sucesso:",category);
         return category
 

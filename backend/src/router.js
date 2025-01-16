@@ -1,5 +1,5 @@
 import express from 'express';
-import { getCategoryHandler, addCategoryHandler, getCategoryBiId, updateCategoryHandler} from './controllers/categoryController.js'
+import { getCategoryHandler, addCategoryHandler, getCategoryBiId, updateCategoryHandler, deleteCategoryHandler} from './controllers/categoryController.js'
 import { getCandidatoHandler, addCandidatoHandler } from './controllers/candidatoController.js';
 const router = express.Router();
 
@@ -9,6 +9,7 @@ router.get('/categoria',getCategoryHandler);
 router.post('/categoria',addCategoryHandler);
 router.get('/categoria/:id',getCategoryBiId);
 router.patch('/categoria/:id',updateCategoryHandler);
+router.delete('/categoria/:id',deleteCategoryHandler);
 
 
 // ROTAS CANDIDATOS
