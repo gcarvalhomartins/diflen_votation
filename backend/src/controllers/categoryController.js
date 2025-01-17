@@ -46,13 +46,18 @@ async function getCategoryBiId(req, res) {
 async function updateCategoryHandler(req,res){
     try {
         const category = req.body;
-        const updateCategories = await updateCategory(category)
-        if(!updateCategories){
-            return res.status(404).json({message: "Categoria não encontrada"})
+
+        if(!category || !category.id){
+            return res.status(400).json({message: "ID da categoria é obrigatório"})
         }
-        return res.status(200).json(updateCategories)
+        const result = await updateCategory(category)
+
+        return res.status(200).json(result)
+
     }catch(error){
         console.error("Erro ao atualizar categoria",error)
+
+        return res.status(404).json({message: error.message})
     } 
     
 }

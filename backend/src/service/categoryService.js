@@ -27,6 +27,7 @@ async function getCategoryId(id){
 
     const convert_id = parseInt(id)
     const categories_Id = await category.findByPk(convert_id)
+
     if(!categories_Id){
         throw new Error("Categoria nao encontrada")
     }
@@ -36,21 +37,22 @@ async function getCategoryId(id){
 
 async function updateCategory(categoria) {
     const { id } = categoria;
+
     const id_category = await getCategoryId(id);
 
-    if(id_category === Error){
+    if(!id_category){
         throw new Error("Categoria nao encontrada")
     }
 
     await category.update(categoria,{ where: { id: id }});
-    return category
+    
+    return { message: 'Categoria atualizada com sucesso' };
 
 }
 
 async function deleteCategory(categoria) {
     const { id } = categoria;
 
-    
     const id_category = await getCategoryId(id);
 
     if (!id_category) {

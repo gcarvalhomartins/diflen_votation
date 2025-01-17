@@ -8,29 +8,33 @@ async function getAllCandidatos(){
 }
 
 async function addCandidato( newCandidato ){
+    
     const { category_id,candidato_name } = newCandidato
     
-    try{
-        const candidatos = await candidato.create({
-            category_id, candidato_name
-        })
-     //   console.log("Candidato adicionado com sucesso:",candidatos)
-        return candidatos
-
-    }catch(error){
-        console.error("Erro na candidato service:", error)
+    const candidatos = await candidato.create({
+        category_id, candidato_name
+    })
+    if(!candidatos){
+        throw new Error('Erro ao adicionar candidato')
     }
+     //   console.log("Candidato adicionado com sucesso:",candidatos)
+    return candidatos
+
 }
 
 async function getCandidatoId(id){
     const convert_id = parseInt(id)
     const candidatos_Id = await candidato.findByPk(convert_id)
+
+    if(!candidatos_Id){
+        throw new Error("Candidato nao encontrada")
+    }
+
     return candidatos_Id
 }
 
 async function updateCandidato(candidatoObj) {
     
-    try {
         const { id } = candidatoObj;
         const id_candidato = await getCandidatoId(id);
         if(!id_candidato){
@@ -40,29 +44,20 @@ async function updateCandidato(candidatoObj) {
         await candidato.update(candidatoObj,{ where: { id: id }});
       //  console.log("Categoria atualizada com sucesso:", candidato);
         return candidato
-
-    }catch (error) {
-        console.error("Erro ao atualizar categoria, service",error)
-        throw(error)
-    }
 }
 
 async function deleteCandidato(candidatoObj) {
-    try {
-        const { id } = candidatoObj
-        const id_category = await getCandidatoId(id)
-        if(!id_category){
-            throw new Error("Categoria nao encontrada")
-        }
-
-        await candidato.destroy({ where: { id: id }});
-      //  console.log("Categoria deletada com sucesso:",candidato);
-        return candidato
-
-    }catch(error){
-        console.error("Erro ao deletar candidato", error)
-        throw(error)
+    
+    const { id } = candidatoObj
+    const id_category = await getCandidatoId(id)
+    if(!id_category){
+        throw new Error("Categoria nao encontrada")
     }
+
+    await candidato.destroy({ where: { id: id }});
+      //  console.log("Categoria deletada com sucesso:",candidato);
+    return candidato
+
 }
 
 
