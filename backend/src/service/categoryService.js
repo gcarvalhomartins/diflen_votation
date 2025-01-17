@@ -3,13 +3,21 @@ import { category }  from "../models/Category.js"
 
 
 async function getAlltCategory(){
-    const categories = await category.findAll();
-    return categories 
+    try {
+        const categories = await category.findAll();
+        return categories
+
+    }catch(error){
+        console.error("Erro ao buscar categorias", error)
+        throw error 
+    }
+
+     
 }
 
 async function addCategory( newCategoria ){
-
-    const { category_name } = newCategoria
+    try {
+        const { category_name } = newCategoria
     
         const categories = await category.create({
             category_name
@@ -17,17 +25,32 @@ async function addCategory( newCategoria ){
         if(!categories){
             throw new Error("Erro ao adicionar categoria")
         }
-      //  console.log("Categoria adicionada com sucesso:",categories)
         return categories
+        
+    }catch(error){ 
+        console.error("Erro ao adicionar categoria", error)
+        throw error
+    }
+        
+      //  console.log("Categoria adicionada com sucesso:",categories)
+        
 }
 
 async function getCategoryId(id){
-    const convert_id = parseInt(id)
-    const categories_Id = await category.findByPk(convert_id)
-    if(!categories_Id){
-        throw new Error("Categoria nao encontrada")
+    try {
+        const convert_id = parseInt(id)
+        const categories_Id = await category.findByPk(convert_id)
+        if(!categories_Id){
+            throw new Error("Categoria nao encontrada")
+        }
+        return categories_Id
+
+    }catch(error){
+        console.error("Erro ao buscar categoria por id", error)
+        throw(error)
     }
-    return categories_Id
+    
+    
 }
 
 async function updateCategory(categoria) {
@@ -38,7 +61,6 @@ async function updateCategory(categoria) {
         if(!id_category){
             throw new Error("Categoria nao encontrada")
         }
-        
         await category.update(categoria,{ where: { id: id }});
         return category
 
