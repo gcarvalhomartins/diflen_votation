@@ -13,8 +13,15 @@ async function addCategoryHandler(req,res){
 
 async function getCategoryBiId(req,res){
     const id_categori = req.params.id;
-    const category = await getCategoryId(id_categori)
-    return res.status(200).json(category)
+    try {
+        const category = await getCategoryId(id_categori)
+        return res.status(200).json(category)
+
+    }catch(error){
+       // console.error("Erro ao buscar categoria por id:",error)
+        return res.status(404).json({message: "Categoria não encontrada"})
+    }
+    
 }
 async function updateCategoryHandler(req,res){
     const category = req.body;
@@ -24,6 +31,9 @@ async function updateCategoryHandler(req,res){
 async function deleteCategoryHandler(req,res){
     const category = req.body;
     const deleteCategoory = await deleteCategory(category)
+    if(!deleteCategoory){
+        return res.status(404).json({message: "Categoria não encontrada"})
+    }
     return res.status(200).json(deleteCategoory)
 }
 

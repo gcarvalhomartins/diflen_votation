@@ -8,23 +8,25 @@ async function getAlltCategory(){
 }
 
 async function addCategory( newCategoria ){
+
     const { category_name } = newCategoria
     
-    try{
         const categories = await category.create({
             category_name
         })
-        console.log("Categoria adicionada com sucesso:",categories)
+        if(!categories){
+            throw new Error("Erro ao adicionar categoria")
+        }
+      //  console.log("Categoria adicionada com sucesso:",categories)
         return categories
-
-    }catch(error){
-        console.error("Erro na category service:", error)
-    }
 }
 
 async function getCategoryId(id){
     const convert_id = parseInt(id)
     const categories_Id = await category.findByPk(convert_id)
+    if(!categories_Id){
+        throw new Error("Categoria nao encontrada")
+    }
     return categories_Id
 }
 
@@ -38,7 +40,6 @@ async function updateCategory(categoria) {
         }
         
         await category.update(categoria,{ where: { id: id }});
-        console.log("Categoria atualizada com sucesso:", category);
         return category
 
     }catch (error) {
@@ -51,12 +52,11 @@ async function deleteCategory(categoria) {
     try {
         const { id } = categoria
         const id_category = await getCategoryId(id)
+
         if(!id_category){
             throw new Error("Categoria nao encontrada")
         }
-
         await category.destroy({ where: { id: id }});
-        console.log("Categoria deletada com sucesso:",category);
         return category
 
     }catch(error){
