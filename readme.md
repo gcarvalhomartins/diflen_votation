@@ -1,6 +1,9 @@
 # Diflen Votation
 
-Descrição breve do projeto, explicando seu propósito e funcionalidades principais.
+O Diflen Votation foi criado no intuito de automatizar o processo de votação do diflen acamp, o projeto tem intuito de conseguir funcionar mesmo nao estando conectado a internet, funcionando somente na intrantet, através de roteatores wifi.</br>
+
+Sempre que pudermos estaremos realizando atualização e melhoria do software. Não esqueça de deixar um star no projeto, obriado pela atenção, aceitamos os feedbacks.
+
 
 ---
 
@@ -11,16 +14,16 @@ Aqui estão as dependências principais necessárias para rodar o projeto. Certi
 - [dotenv](https://nodejs.org/) (versão mínima: 16.x)
 - [Express.js](https://expressjs.com/)
 - [Sequelize](https://sequelize.org/)
-- [nodemon](https://www.npmjs.com/package/nodemon).
+- [nodemon](https://www.npmjs.com/package/nodemon).</br>
 -[mysql2](https://www.npmjs.com/package/mysql2).
 
 ### Como instalar o projeto:
 1. Clone o repositório:
    ```bash
    git clone https://github.com/gcarvalhomartins/diflen_votation.git
-   cd repo
+   
 
-## 🦾 Como dar instalar as dependencias:
+## 🦾 Como instalar as dependencias:
 1. no terminal dentro da pasta backend, digite o seguinte comando:
     ```bash
     npm i -- este comando server para instalar todas as dependencias.
