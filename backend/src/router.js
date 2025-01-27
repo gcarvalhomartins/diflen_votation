@@ -1,7 +1,7 @@
 import express from 'express';
 import { getCategoryHandler, addCategoryHandler, getCategoryBiId, updateCategoryHandler, deleteCategoryHandler} from './controllers/categoryController.js'
 import { getCandidatoHandler,addCandidatoHandler,getCandidatoBiId,updateCandidatoHandler, deleteCandidatoHandler } from './controllers/candidatoController.js';
-import { getVotoHandler, addVotoHandler, getVotoIdHandler} from './controllers/votoController.js'
+import { getVotoHandler, addVotoHandler, getVotoIdHandler, getCategoriasAndCandidatosHandler} from './controllers/votoController.js'
 const router = express.Router();
 
 // ROTAS CATEGORIAS 
@@ -24,6 +24,7 @@ router.delete('/candidato/:id',deleteCandidatoHandler)
 // ROTA VOTOS
 
 router.get('/voto',getVotoHandler);
+router.get('/voto/categorias',getCategoriasAndCandidatosHandler);
 router.get('/voto/:id',getVotoIdHandler);
 router.post('/voto',addVotoHandler)
 

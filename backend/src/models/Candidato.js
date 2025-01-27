@@ -1,4 +1,5 @@
 import { Sequelize, DataTypes } from "sequelize";
+import category  from "./Category.js";
 import sequelize from "./database.js";
 
 export const candidato = sequelize.define("candidato", {
@@ -10,6 +11,12 @@ export const candidato = sequelize.define("candidato", {
     category_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        references: {
+            model: category,
+            key: "id"
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE"
     },
     candidato_name: {
         type: DataTypes.STRING,
@@ -19,6 +26,11 @@ export const candidato = sequelize.define("candidato", {
     timestamps: true 
 });
 
+candidato.belongsTo(category, {
+    foreignKey: "category_id",
+    as: "categoria"
+});
+
 try {
     candidato.sync().then(()=>{
         console.log("Tabela candidato criada com sucesso")
@@ -26,6 +38,7 @@ try {
 }catch(error){
     console.error("Não foi criada a tabela:", error)
 }
+
 
 
 export default candidato;
