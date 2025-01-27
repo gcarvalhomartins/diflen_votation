@@ -14,7 +14,7 @@ Aqui estão as dependências principais necessárias para rodar o projeto. Certi
 - [dotenv](https://nodejs.org/) (versão mínima: 16.x)
 - [Express.js](https://expressjs.com/)
 - [Sequelize](https://sequelize.org/)
-- [nodemon](https://www.npmjs.com/package/nodemon).</br>
+- [nodemon](https://www.npmjs.com/package/nodemon).
 -[mysql2](https://www.npmjs.com/package/mysql2).
 
 ### Como instalar o projeto:
