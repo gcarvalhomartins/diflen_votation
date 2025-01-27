@@ -1,4 +1,4 @@
-import {  getAllVotos, getVotoId, addVoto , getCategoriasAndCandidatos} from '../service/votoService.js';
+import {  getAllVotos, getVotoId, addVoto} from '../service/votoService.js';
 
 async function getVotoHandler(req,res){
     const get_votos = await getAllVotos()
@@ -16,10 +16,7 @@ async function getVotoIdHandler(req,res){
     const voto = await getVotoId(id_voto)
     return res.status(200).json(voto)
 }
-async function getCategoriasAndCandidatosHandler(req,res){
-    const categorias = await getCategoriasAndCandidatos()
-    return res.status(200).json(categorias)
-}
+
 // async function updateCandidatoHandler(req,res){
 //     const candidato = req.body;
 //     const updateCandidatos = await updateCandidato(candidato)
@@ -35,7 +32,6 @@ export {
     getVotoHandler,
     addVotoHandler,
     getVotoIdHandler,
-    getCategoriasAndCandidatosHandler,
 //    updateCandidatoHandler,
 //    deleteCandidatoHandler
 }

@@ -1,5 +1,4 @@
 import { Sequelize, DataTypes } from "sequelize";
-import candidato  from "./Candidato.js";
 import sequelize from "./database.js";
 
 export const category = sequelize.define("categoria", {
@@ -16,10 +15,6 @@ export const category = sequelize.define("categoria", {
     timestamps: true 
 });
 
-category.hasMany(candidato,{
-        foreignKey: "category_id",
-        as: "categorias_and_candidatos"
-    });
 
 try {
     category.sync().then(()=>{

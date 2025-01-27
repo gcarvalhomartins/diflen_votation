@@ -1,6 +1,6 @@
 import { json } from "express"
 import { category } from "../models/Category.js"
-import { candidato } from "../models/Candidato.js"
+import  { candidato } from "../models/Candidato.js"
 import voto from "../models/Voto.js";
 
 
@@ -30,17 +30,6 @@ async function getVotoId(id){
     return votos_id
 }
 
-async function getCategoriasAndCandidatos(){
-    const categoria = await category.findAll({
-        include:{
-            model: candidato,
-            as: "categorias_and_candidatos",
-            required: false,
-        }
-    }) ;
-
-    return categoria
-}
 
 // async function updateCandidato(candidatoObj) {
     
@@ -84,7 +73,6 @@ export {
     getAllVotos,
     getVotoId,
     addVoto,
-    getCategoriasAndCandidatos,
    // updateCandidato,
    // deleteCandidato
 }

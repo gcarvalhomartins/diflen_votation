@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes } from "sequelize";
-import category  from "./Category.js";
+import category from "./Category.js";
 import sequelize from "./database.js";
 
 export const candidato = sequelize.define("candidato", {
@@ -11,12 +11,6 @@ export const candidato = sequelize.define("candidato", {
     category_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-            model: category,
-            key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE"
     },
     candidato_name: {
         type: DataTypes.STRING,
@@ -27,6 +21,7 @@ export const candidato = sequelize.define("candidato", {
 });
 
 candidato.belongsTo(category, {
+    constraints: true,
     foreignKey: "category_id",
     as: "categoria"
 });

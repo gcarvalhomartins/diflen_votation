@@ -1,4 +1,5 @@
 import { json } from "express"
+import category from "../models/Category.js"
 import candidato from "../models/Candidato.js";
 
 
@@ -31,6 +32,11 @@ async function getCandidatoId(id){
     }
 
     return candidatos_Id
+}
+
+async function getCandidatoAndCategory(){
+    const candidatosAndCategorys = await candidato.findAll({include: category, where: { id: id }});
+    return candidatosAndCategorys;
 }
 
 async function updateCandidato(candidatoObj) {
@@ -66,5 +72,6 @@ export {
     getCandidatoId,
     addCandidato,
     updateCandidato,
-    deleteCandidato
+    deleteCandidato,
+    getCandidatoAndCategory
 }

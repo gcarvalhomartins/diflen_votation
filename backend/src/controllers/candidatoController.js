@@ -1,4 +1,4 @@
-import { getAllCandidatos, getCandidatoId, addCandidato, updateCandidato, deleteCandidato } from '../service/candidatoService.js';
+import { getAllCandidatos, getCandidatoId, addCandidato, updateCandidato, deleteCandidato , getCandidatoAndCategory} from '../service/candidatoService.js';
 
 async function getCandidatoHandler(req,res){
     
@@ -44,6 +44,18 @@ async function getCandidatoBiId(req,res){
     }
     
 }
+
+async function getCandidatoAndCategoryHandler(req,res){
+    try {
+        const candidatoAndCategory = await getCandidatoAndCategory()
+        return res.status(200).json(candidatoAndCategory)
+
+    }catch(error){
+        console.error("Erro ao buscar candidato e categoria",error)
+    }
+}
+
+
 async function updateCandidatoHandler(req,res){
     try{
         const candidato = req.body;
@@ -76,7 +88,8 @@ export {
     addCandidatoHandler,
     getCandidatoBiId,
     updateCandidatoHandler,
-    deleteCandidatoHandler
+    deleteCandidatoHandler,
+    getCandidatoAndCategoryHandler
 }
 
 
