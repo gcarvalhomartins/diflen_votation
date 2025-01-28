@@ -53,6 +53,7 @@ Lista das Rotas que estao Disponiveis.
 | PUT     | /api/categoria/:id      | Atualiza os dados de uma categoria        |
 | DELETE  | /api/categoria/:id      | Remove uma categoria                      |
 | GET     | /api/candidato          | Retorna uma lista de candidatos          |
+| GET     | /api/candidatosandcategory          | Retorna os candidatos juntamente com suas categorias          |
 | POST    | /api/candidato          | Cria um novo candidato                   |
 | GET     | /api/candidato/:id      | Retorna os detalhes de um candidato      |
 | PUT     | /api/candidato/:id      | Atualiza os dados de um candidato       |
