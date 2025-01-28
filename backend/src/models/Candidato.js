@@ -1,5 +1,4 @@
 import { Sequelize, DataTypes } from "sequelize";
-import category from "./Category.js";
 import sequelize from "./database.js";
 
 export const candidato = sequelize.define("candidato", {
@@ -20,11 +19,6 @@ export const candidato = sequelize.define("candidato", {
     timestamps: true 
 });
 
-candidato.belongsTo(category, {
-    constraints: true,
-    foreignKey: "category_id",
-    as: "categoria"
-});
 
 try {
     candidato.sync().then(()=>{

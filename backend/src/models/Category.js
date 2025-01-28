@@ -16,6 +16,7 @@ export const category = sequelize.define("categoria", {
 });
 
 
+
 try {
     category.sync().then(()=>{
         console.log("Tabela category criada com sucesso")

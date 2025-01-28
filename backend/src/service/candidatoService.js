@@ -1,6 +1,6 @@
 import { json } from "express"
-import category from "../models/Category.js"
-import candidato from "../models/Candidato.js";
+import { category } from "../models/index.js"
+import {  candidato} from "../models/index.js";
 
 
 async function getAllCandidatos(){
@@ -35,7 +35,10 @@ async function getCandidatoId(id){
 }
 
 async function getCandidatoAndCategory(){
-    const candidatosAndCategorys = await candidato.findAll({include: category, where: { id: id }});
+    const candidatosAndCategorys = await category.findAll({ 
+        include: {model: candidato, 
+        as: 'candidatos'}
+    });
     return candidatosAndCategorys;
 }
 

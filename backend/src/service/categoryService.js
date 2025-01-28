@@ -1,5 +1,5 @@
 import { json } from "express"
-import { category }  from "../models/Category.js"
+import { category }  from "../models/index.js"
 
 
 async function getAlltCategory(){
