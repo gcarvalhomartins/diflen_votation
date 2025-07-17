@@ -35,11 +35,11 @@ COPY --from=build /app/src ./src
 
 # Expose the port your app runs on (assuming 3000 as a common default)
 # Make sure this matches the port your 'server.js' uses.
-EXPOSE 3000
+EXPOSE 5544
 
 # Set environment variables for production
 ENV NODE_ENV=production
 
 # Command to run the application
 # Now, server.js is located inside the 'src' directory
-CMD ["node", "src/server.js"]
+CMD ["node", "src/app.js"]

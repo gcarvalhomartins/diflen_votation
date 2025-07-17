@@ -4,8 +4,11 @@ services:
   #     - diflen
   back:
     build: ./backend/
+    restart: always
+    depends_on:
+      - db
     env_file:
-      - .env
+      - ./backend/.env
     networks:
       - diflen
   db:
