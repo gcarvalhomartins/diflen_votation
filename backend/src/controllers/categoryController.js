@@ -1,10 +1,11 @@
 import { getAlltCategory, addCategory, getCategoryId, updateCategory, deleteCategory } from '../service/categoryService.js';
 
 async function getCategoryHandler(req,res){
-
+    console.log(req.route)
     try {
 
         const getCategoryServer = await getAlltCategory()
+        console.log(`Categorias encontradas: ${JSON.stringify(getCategoryServer)}`)
         return res.status(200).json(getCategoryServer)
         
     }catch(error){
@@ -15,6 +16,7 @@ async function getCategoryHandler(req,res){
 };
 
 async function addCategoryHandler(req,res){
+    console.log(req.route)
     try{
         const category = req.body;
 
@@ -30,6 +32,7 @@ async function addCategoryHandler(req,res){
 }
 
 async function getCategoryBiId(req, res) {
+    console.log(req.route)
     try {
 
         const id_categori = req.params.id;
@@ -45,6 +48,7 @@ async function getCategoryBiId(req, res) {
 }
 
 async function updateCategoryHandler(req,res){
+    console.log(req.route)
     try {
         const category = req.body;
 
