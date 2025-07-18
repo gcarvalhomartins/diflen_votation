@@ -2,7 +2,7 @@
 FROM node:20-alpine AS build
 
 # Set working directory
-WORKDIR /app
+WORKDIR /backend
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -26,20 +26,20 @@ FROM node:20-alpine AS production
 WORKDIR /app
 
 # Copy only necessary files from the build stage
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/package*.json ./
-# Copy the entire 'src' directory, as it contains all your application's JS files
-COPY --from=build /app/src ./src
+COPY --from=build /backend/node_modules ./node_modules
+COPY --from=build /backend/package*.json ./
+# Copy the entire 'src' directory, as it contains all your backendlication's JS files
+COPY --from=build /backend/src ./src
 # If you copied .env.example in the build stage and need it here:
-# COPY --from=build /app/.env.example ./
+# COPY --from=build /backend/.env.example ./
 
-# Expose the port your app runs on (assuming 3000 as a common default)
+# Expose the port your backend runs on (assuming 3000 as a common default)
 # Make sure this matches the port your 'server.js' uses.
-EXPOSE 5544
+EXPOSE 3000
 
 # Set environment variables for production
 ENV NODE_ENV=production
 
 # Command to run the application
 # Now, server.js is located inside the 'src' directory
-CMD ["node", "src/app.js"]
+CMD ["node", "src/server.js"]
