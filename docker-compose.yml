@@ -16,10 +16,8 @@ services:
   db:
     image: postgres:14-alpine
     restart: always
-    environment:
-      POSTGRES_DB: diflen
-      POSTGRES_USER: gab
-      POSTGRES_PASSWORD: 1243def
+    env_file:
+      - ./db/.env
     volumes:
       - db:/var/lib/postgresql/data
     networks:
