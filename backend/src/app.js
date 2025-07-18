@@ -9,5 +9,6 @@ const app = express();
 app.use(json());
 app.use(router);
 
+console.log("cheguei no app")
 
 export default app;
