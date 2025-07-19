@@ -1,7 +1,8 @@
+import { Router } from 'express';
 import { getAllCandidatos, getCandidatoId, addCandidato, updateCandidato, deleteCandidato , getCandidatoAndCategory} from '../service/candidatoService.js';
 
 async function getCandidatoHandler(req,res){
-    
+    console.log(req.route)
     try{
         const getCandidatos = await getAllCandidatos()
         return res.status(200).json(getCandidatos)
@@ -14,7 +15,7 @@ async function getCandidatoHandler(req,res){
 };
 
 async function addCandidatoHandler(req,res){
-    
+    console.log(req.route)
     try{
         
         const candidato = req.body;
@@ -31,6 +32,7 @@ async function addCandidatoHandler(req,res){
 }
 
 async function getCandidatoBiId(req,res){
+    console.log(req.route)
     try{
         
         const id_candidato = req.params.id;
@@ -46,6 +48,7 @@ async function getCandidatoBiId(req,res){
 }
 
 async function getCandidatoAndCategoryHandler(req,res){
+    console.log(req.route)
     try {
         const candidatoAndCategory = await getCandidatoAndCategory()
         return res.status(200).json(candidatoAndCategory)
@@ -57,6 +60,7 @@ async function getCandidatoAndCategoryHandler(req,res){
 
 
 async function updateCandidatoHandler(req,res){
+    console.log(req.route)
     try{
         const candidato = req.body;
         const updateCandidatos = await updateCandidato(candidato)
@@ -71,6 +75,7 @@ async function updateCandidatoHandler(req,res){
     
 }
 async function deleteCandidatoHandler(req,res){
+    console.log(req.route)
     try{
         const candidato = req.body;
         const deleteCandidatos = await deleteCandidato(candidato)
