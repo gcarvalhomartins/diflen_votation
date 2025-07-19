@@ -16,7 +16,7 @@ Aqui estão as dependências principais necessárias para rodar o projeto. Certi
 - [Sequelize](https://sequelize.org/)
 - [nodemon](https://www.npmjs.com/package/nodemon).
 - [mysql2](https://www.npmjs.com/package/mysql2).
-- Ou o Banco de sua prefência basta somente modificar o dialect do projeto, que instalar a lib referente a sua preferência e ele ira se adaptar. 
+- Ou o Banco de sua prefência basta somente modificar o dialect do projeto, e instalar a lib referente a sua preferência e ele ira se adaptar. 
 
 ### Como instalar o projeto:
 1. Clone o repositório:
