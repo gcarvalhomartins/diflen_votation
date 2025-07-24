@@ -76,13 +76,14 @@ O projeto está arquitetado em **MVC** (Models, Views e Controllers).
 **Atenção**: Para não sobrecarregar os models, foi criada uma camada de **services** para realizar todas as operações de serviço.
 
 Arquitetura do Projeto:
-     ➥ `src/`
-      ➥ `controllers/` \# Contém a lógica para manipulação das requisições.
-      ➥ `models/` \# Contém os modelos do banco de dados usando Sequelize.
-      ➥ `routes/` \# Define as rotas e suas conexões com os controladores.
-      ➥ `services/` \# Implementa a lógica de negócios.
-      ➥ `database/` \# Contém as configurações do banco de dados.
+
+- `src/`
+  - `controllers/` # Contém a lógica para manipulação das requisições.
+  - `models/` # Contém os modelos do banco de dados usando Sequelize.
+  - `routes/` # Define as rotas e suas conexões com os controladores.
+  - `services/` # Implementa a lógica de negócios.
+  - `database/` # Contém as configurações do banco de dados.
 
 ## Link para download dos JSONs consumidos no Insomnia.
 
-Link do Drive: [https://drive.google.com/drive/folders/1nrrDz5JQlfwT2Mw\_jD\_uHVUhKhGYcXO6?usp=drive\_link](https://drive.google.com/drive/folders/1nrrDz5JQlfwT2Mw_jD_uHVUhKhGYcXO6?usp=drive_link)
+Link do Drive: [https://drive.google.com/drive/folders/1nrrDz5JQlfwT2Mw_jD_uHVUhKhGYcXO6?usp=drive_link](https://drive.google.com/drive/folders/1nrrDz5JQlfwT2Mw_jD_uHVUhKhGYcXO6?usp=drive_link)
