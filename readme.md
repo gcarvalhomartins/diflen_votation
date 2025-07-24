@@ -1,6 +1,4 @@
-Aqui está a versão corrigida do seu README, mantendo a formatação original:
 
------
 
 # Diflen Votation
 
